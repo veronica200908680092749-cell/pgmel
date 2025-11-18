@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POLIMIX CONCRETO - O concreto das pequenas e grandes obras</title>
+    <meta name="description" content="POLIMIX CONCRETO - Concreto usinado, bombeamento e lajes treliçadas em São Paulo. Orçamento via WhatsApp (11) 92127-8876">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .header.scrolled {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            background: #f97316;
+            border-radius: 4px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        .header.scrolled .logo-text h1 {
+            color: #1f2937;
+        }
+
+        .header.scrolled .logo-text p {
+            color: #6b7280;
+        }
+
+        .nav {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: #f97316;
+        }
+
+        .nav a.active {
+            border-bottom: 2px solid #f97316;
+            padding-bottom: 0.25rem;
+        }
+
+        .header.scrolled .nav a {
+            color: #374151;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: white;
+        }
+
+        .header.scrolled .mobile-menu-btn {
+            color: #1f2937;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                        url('https://images.unsplash.com/photo-1710746055183-ba55e616bfe8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwc3Vuc2V0fGVufDB8fHx8MTc1NTYzMjU2NHww&ixlib=rb-4.1.0&q=85');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 64rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title .orange {
+            color: #f97316;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            max-width: 32rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .btn-green {
+            background: #10b981;
+            color: white;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            animation: pulseGreen 2s infinite;
+        }
+
+        .btn-orange {
+            background: #f97316;
+            color: white;
+            box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+            animation: pulseOrange 2s infinite;
+        }
+
+        .btn-yellow {
+            background: #fbbf24;
+            color: #1f2937;
+            font-weight: 700;
+            animation: bounce 1s infinite;
+        }
+
+        .btn-white {
+            background: white;
+            color: #10b981;
+            border: 2px solid white;
+            font-weight: 700;
+        }
+
+        .btn-gray {
+            background: #1f2937;
+            color: white;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .where-btn {
+            background: #1f2937;
+            color: white;
+            margin-top: 1rem;
+        }
+
+        /* Promotional Banner */
+        .promo-banner {
+            background: linear-gradient(45deg, #10b981, #059669, #047857, #065f46);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            padding: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .promo-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .promo-text p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .promo-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5rem 0;
+            background: #f9fafb;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text .orange {
+            color: #f97316;
+        }
+
+        .about-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f97316;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #6b7280;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 24rem;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Quote CTA Section */
+        .quote-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-content {
+            text-align: center;
+            max-width: 64rem;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .quote-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .quote-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+        }
+
+        .quote-btn {
+            background: white;
+            color: #f97316;
+            font-weight: 700;
+            padding: 1rem 3rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            background: #1f2937;
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            color: #f97316;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            color: #d1d5db;
+        }
+
+        .contact-form {
+            background: #374151;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #d1d5db;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: 0.75rem 1rem;
+            background: #4b5563;
+            border: 1px solid #6b7280;
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #f97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 6rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            grid-column: span 2;
+        }
+
+        .footer-brand p {
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: #25d366;
+            color: white;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+            border: none;
+            cursor: pointer;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Animations */
+        @keyframes pulseGreen {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(16, 185, 129, 0.5), 0 0 10px rgba(16, 185, 129, 0.3), 0 0 15px rgba(16, 185, 129, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(16, 185, 129, 0.8), 0 0 30px rgba(16, 185, 129, 0.6), 0 0 40px rgba(16, 185, 129, 0.4);
+            }
+        }
+
+        @keyframes pulseOrange {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(249, 115, 22, 0.5), 0 0 10px rgba(249, 115, 22, 0.3), 0 0 15px rgba(249, 115, 22, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(249, 115, 22, 0.8), 0 0 30px rgba(249, 115, 22, 0.6), 0 0 40px rgba(249, 115, 22, 0.4);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+
+            .promo-content {
+                flex-direction: row;
+            }
+
+            .promo-buttons {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 2fr;
+            }
+
+            .footer-brand {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .about-text h2,
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #f97316;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ea580c;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-nav.show {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: #f97316;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <div class="logo-text">
+                        <h1>POLIMIX</h1>
+                        <p>CONCRETO</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#unidades">Unidades</a>
+                    <a href="#concretos">Concretos</a>
+                    <a href="#servicos">Serviços</a>
+                    <a href="#obras">Obras</a>
+                    <a href="#orcamento">Orçamento</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" id="mobile-nav">
+                <a href="#home">Home</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#unidades">Unidades</a>
+                <a href="#concretos">Concretos</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#obras">Obras</a>
+                <a href="#orcamento">Orçamento</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    O concreto das<br>
+                    <span class="orange">pequenas e</span><br>
+                    <span class="orange">grandes obras.</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Entre em contato e adquira o melhor concreto.
+                </p>
+                
+                <!-- Botões WhatsApp Chamativos -->
+                <div class="hero-buttons">
+                    <button class="btn btn-green" onclick="openWhatsApp('🚚 Olá POLIMIX! Preciso de CONCRETO USINADO com urgência! Pode me ajudar?')">
+                        📱 ORÇAMENTO RÁPIDO
+                    </button>
+                    
+                    <button class="btn btn-orange" onclick="openWhatsApp('⚡ Olá! Preciso de BOMBEAMENTO DE CONCRETO. Vocês fazem? Qual o preço?')">
+                        🚚 BOMBEAMENTO URGENTE
+                    </button>
+                </div>
+                
+                <button class="btn btn-gray where-btn" onclick="scrollToSection('contato')">
+                    Onde Estamos
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;">
+            <i data-lucide="chevron-down" style="width: 24px; height: 24px; color: white;"></i>
+        </div>
+    </section>
+
+    <!-- Banner WhatsApp Fixo Chamativo -->
+    <section class="promo-banner">
+        <div class="container">
+            <div class="promo-content">
+                <div class="promo-text">
+                    <h3>🔥 PROMOÇÃO ESPECIAL - CONCRETO COM 15% DESCONTO!</h3>
+                    <p>⏰ Válido apenas hoje! Peça seu orçamento agora via WhatsApp</p>
+                </div>
+                
+                <div class="promo-buttons">
+                    <button class="btn btn-yellow" onclick="openWhatsApp('🔥 PROMOCAO ESPECIAL! Vi que vocês têm 15% de desconto hoje! Quero fazer meu orçamento agora!')">
+                        💰 QUERO O DESCONTO!
+                    </button>
+                    
+                    <button class="btn btn-white" onclick="openWhatsApp('📞 Olá POLIMIX! Preciso falar com vocês AGORA sobre concreto. Podem me atender?')">
+                        📞 LIGAR AGORA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="sobre">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Qualidade e <span class="orange">Tradição</span></h2>
+                    <p class="about-description">
+                        A POLIMIX CONCRETO é referência em São Paulo no fornecimento de concreto 
+                        de alta qualidade. Com anos de experiência no mercado, atendemos desde 
+                        pequenas reformas até grandes empreendimentos.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <p class="stat-label">Obras Realizadas</p>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <p class="stat-label">Anos de Experiência</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1565862452829-e33c0b781ea3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwyfHxjb25zdHJ1Y3Rpb24lMjBjcmFuZXxlbnwwfHx8fDE3NTU2MzI1ODB8MA&ixlib=rb-4.1.0&q=85" 
+                         alt="Obra em construção" 
+                         class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="servicos">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos <span class="orange">Serviços</span></h2>
+                <p class="section-subtitle">
+                    Oferecemos soluções completas em concreto para todos os tipos de obras
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3 class="service-title">Concreto Usinado</h3>
+                    <p class="service-description">
+                        Concreto de alta qualidade produzido em nossa usina com rigoroso controle de qualidade
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3 class="service-title">Bombeamento</h3>
+                    <p class="service-description">
+                        Serviço de bombeamento para obras de difícil acesso com equipamentos modernos
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3 class="service-title">Concreto Especial</h3>
+                    <p class="service-description">
+                        Concretos especiais para projetos específicos com características diferenciadas
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3 class="service-title">Lajes Treliçadas</h3>
+                    <p class="service-description">
+                        Sistema construtivo eficiente e econômico para lajes residenciais e comerciais
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3 class="service-title">Consultoria Técnica</h3>
+                    <p class="service-description">
+                        Suporte técnico especializado para escolha do concreto ideal para sua obra
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⏰</div>
+                    <h3 class="service-title">Entrega Expressa</h3>
+                    <p class="service-description">
+                        Entregas pontuais em todo São Paulo com frota própria de caminhões betoneira
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote CTA Section -->
+    <section class="quote-section" id="orcamento">
+        <div class="container">
+            <div class="quote-content">
+                <h2 class="quote-title">Solicite um orçamento</h2>
+                <p class="quote-subtitle">
+                    Receba uma proposta personalizada para sua obra em poucos minutos
+                </p>
+                
+                <button class="btn quote-btn" onclick="sendQuoteRequest()">
+                    Solicitar agora
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contato">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">
+                    Entre em <span class="orange">Contato</span>
+                </h2>
+                <p class="section-subtitle" style="color: #d1d5db;">
+                    Estamos prontos para atender sua obra
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    
+                    <div class="contact-item">
+                        <i data-lucide="map-pin" class="contact-icon" style="width: 24px; height: 24px;"></i>
+                        <div class="contact-details">
+                            <h4>Endereço</h4>
+                            <p>São Paulo - SP</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i data-lucide="phone" class="contact-icon" style="width: 24px; height: 24px;"></i>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <p>(11) 92127-8876</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i data-lucide="clock" class="contact-icon" style="width: 24px; height: 24px;"></i>
+                        <div class="contact-details">
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Segunda a Sexta: 7h às 17h</p>
+                            <p>Sábado: 7h às 12h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quote Form -->
+                <div class="contact-form">
+                    <h3>Solicite seu Orçamento</h3>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Tipo de Concreto</label>
+                            <select class="form-select" id="concrete-type">
+                                <option>Concreto Usinado</option>
+                                <option>Concreto Bombeado</option>
+                                <option>Concreto Especial</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Volume (m³)</label>
+                            <input type="number" placeholder="Ex: 10" class="form-input" id="volume">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label class="form-label">Local da Obra</label>
+                        <input type="text" placeholder="Endereço completo" class="form-input" id="location">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label class="form-label">Observações</label>
+                        <textarea rows="4" placeholder="Detalhes adicionais sobre sua obra..." class="form-textarea" id="observations"></textarea>
+                    </div>
+                    
+                    <button class="btn btn-orange" onclick="sendFormQuote()" style="width: 100%;">
+                        Enviar Orçamento via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <div class="logo-icon"></div>
+                        <div class="logo-text">
+                            <h1>POLIMIX</h1>
+                            <p style="color: #9ca3af;">CONCRETO</p>
+                        </div>
+                    </div>
+                    <p>
+                        Há mais de 15 anos fornecendo concreto de qualidade superior para obras 
+                        em São Paulo. Sua obra merece o melhor!
+                    </p>
+                    <button class="btn btn-green" onclick="openWhatsApp('Olá! Gostaria de solicitar um orçamento.')" style="font-size: 1rem; padding: 0.75rem 1.5rem;">
+                        WhatsApp: (11) 92127-8876
+                    </button>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li>Concreto Usinado</li>
+                        <li>Bombeamento</li>
+                        <li>Lajes Treliçadas</li>
+                        <li>Consultoria Técnica</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>São Paulo - SP</li>
+                        <li>(11) 92127-8876</li>
+                        <li>Seg-Sex: 7h às 17h</li>
+                        <li>Sábado: 7h às 12h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 POLIMIX CONCRETO. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <button class="whatsapp-float" onclick="openWhatsApp('Olá! Gostaria de falar sobre concreto.')" title="Fale conosco no WhatsApp">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+        </svg>
+    </button>
+
+    <script>
+        // WhatsApp number
+        const whatsappNumber = "5511921278876";
+        
+        // Open WhatsApp function
+        function openWhatsApp(message) {
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Send quote request
+        function sendQuoteRequest() {
+            const message = `Olá POLIMIX CONCRETO! 
+
+Gostaria de solicitar um orçamento para:
+- Tipo de concreto: 
+- Volume necessário: 
+- Local da obra: 
+- Data prevista: 
+
+Aguardo retorno. Obrigado!`;
+            openWhatsApp(message);
+        }
+
+        // Send form quote
+        function sendFormQuote() {
+            const concreteType = document.getElementById('concrete-type').value;
+            const volume = document.getElementById('volume').value;
+            const location = document.getElementById('location').value;
+            const observations = document.getElementById('observations').value;
+
+            const message = `Olá POLIMIX CONCRETO! 
+
+Gostaria de solicitar um orçamento:
+
+🏗️ Tipo de concreto: ${concreteType}
+📏 Volume: ${volume || 'A definir'} m³
+📍 Local da obra: ${location || 'A informar'}
+📝 Observações: ${observations || 'Nenhuma observação adicional'}
+
+Aguardo retorno. Obrigado!`;
+            
+            openWhatsApp(message);
+        }
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileNav = document.getElementById('mobile-nav');
+            mobileNav.classList.toggle('show');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-nav').classList.remove('show');
+            });
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
